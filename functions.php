@@ -39,10 +39,31 @@ function montheme_menu_link_class($attrs){
   return $$attrs;
 }
 
+function montheme_pagination(){
+  $pages = paginate_links(['type' => 'array']);
+  if($pages === null){
+    return;
+  }
+  echo '<nav aria-label="Pagination" class="my-4">';
+  echo '<ul class="pagination">';
+  foreach($pages as $page){
+    $active = strpos($page, 'current') !== false;
+    $class = 'page-item';
+    if($active){
+      $class .= 'active';
+    }
+    echo '<li class="'. $class .'">';
+    echo str_replace('page-number', 'page-link', $page);
+    echo '</li>';
+  }
+  echo '</ul>';
+  echo '</nav>';
+}
+
 add_action('after_setup_theme', 'montheme_supports');
 add_action('wp_enqueue_scripts', 'montheme_register_assets');
 
 add_filter('document_title_separator', 'montheme_title_separator');
-add_filter('document_title_parts', 'montheme_document_title_parts');
+// add_filter('document_title_parts', 'montheme_document_title_parts');
 add_filter('nav_menu_css_class', 'montheme_menu_class');
 add_filter('nav_menu_link_attributes', 'montheme_menu_link_class');
