@@ -30,13 +30,13 @@ function montheme_document_title_parts($title){
 function montheme_menu_class($classes){
   // var_dump(func_get_arg()); Debug
   // die();
-  $classes[] = 'nav-item';
+  $classes[] = 'nav-item primary';
   return $classes;
 }
 
 function montheme_menu_link_class($attrs){
-  $$attrs[] = 'nav-link';
-  return $$attrs;
+  $attrs[] = 'nav-link';
+  return $attrs;
 }
 
 function montheme_pagination(){
