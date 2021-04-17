@@ -6,6 +6,8 @@ function montheme_supports(){
   add_theme_support('menus');
   register_nav_menu('header', 'En tete du menu');
   register_nav_menu('footer', 'pied de page');
+
+  add_image_size('post-thumbnail', 350, 215, true);
 }
 
 function montheme_register_assets(){
@@ -35,7 +37,7 @@ function montheme_menu_class($classes){
 }
 
 function montheme_menu_link_class($attrs){
-  $attrs[] = 'nav-link';
+  $attrs[] = 'nav-link mx-auto';
   return $attrs;
 }
 
